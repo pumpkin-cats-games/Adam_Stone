@@ -2,7 +2,7 @@
 
 // Persistent Storage Variable
 monogatari.storage ({
-	player: {
-		name: ''
+	stacey: {
+		name: 'Гугл-Жінка'
 	}
 });
