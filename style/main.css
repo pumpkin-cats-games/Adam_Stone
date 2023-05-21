@@ -18,47 +18,50 @@
 **/
 
 @font-face {
-	font-family: 'Aldrich';
-	font-style: normal;
-	font-weight: 400;
-	src: url(https://fonts.gstatic.com/s/aldrich/v17/MCoTzAn-1s3IGyJMVacY3w.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: "Aldrich";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/aldrich/v17/MCoTzAn-1s3IGyJMVacY3w.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-	font-family: 'Kelly Slab';
-	font-style: normal;
-	font-weight: 400;
-	src: url(https://fonts.gstatic.com/s/kellyslab/v15/-W_7XJX0Rz3cxUnJC5t6fkALfq0k.woff2) format('woff2');
-	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  font-family: "Kelly Slab";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/kellyslab/v15/-W_7XJX0Rz3cxUnJC5t6fkALfq0k.woff2)
+    format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 
 @font-face {
-	font-family: 'Kelly Slab';
-	font-style: normal;
-	font-weight: 400;
-	src: url(https://fonts.gstatic.com/s/kellyslab/v15/-W_7XJX0Rz3cxUnJC5t6fkQLfg.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-family: "Kelly Slab";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/kellyslab/v15/-W_7XJX0Rz3cxUnJC5t6fkQLfg.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* General Style */
 body {
-
 }
 
 /* Simple Button styles*/
 button {
-
 }
 
 /* Simple Button Style on Hover */
 button:hover {
-
 }
 
 /* General Styling for Menu Screens */
 [data-screen] {
-
 }
 
 /**
@@ -69,38 +72,37 @@ button:hover {
 
 /* Main Menu Styling */
 [data-screen="main"] {
-	background-image: url("../assets/scenes/main_menu.png");
+  background-image: url("../assets/scenes/main_menu.png");
 }
 
 /* Main Menu Buttons Styling */
 [data-screen="main"] button {
-	font-family: 'Aldrich';
-	font-size: 45px;
-	width: 402px;
-	height: 63px;
-	margin-bottom: 40px;
-	color: rgba(255, 255, 255, 0.5);
-	border: 0.5px solid rgba(255, 0, 35, 0.5);
-	background-color: rgba(255, 255, 255, 0.05);
+  font-family: "Aldrich";
+  font-size: 45px;
+  width: 402px;
+  height: 63px;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.5);
+  border: 0.5px solid rgba(255, 0, 35, 0.5);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-
 [data-screen="main"] button:hover {
-	color: rgba(255, 255, 255, 0.8);
-	background: rgba(226, 141, 141, 0.2);
-	border: 0.5px solid rgba(255, 0, 35, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(226, 141, 141, 0.2);
+  border: 0.5px solid rgba(255, 0, 35, 0.5);
 }
 
 [data-screen="main"] button:active {
-	-webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #FF0000;
-	background: rgba(255, 255, 255, 0.02);
-	border: 0.5px solid rgba(255, 0, 35, 0.5);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #ff0000;
+  background: rgba(255, 255, 255, 0.02);
+  border: 0.5px solid rgba(255, 0, 35, 0.5);
 }
 
 [data-component="main-menu"] {
-	margin-right: 100px;
-	margin-bottom: 20px;
+  margin-right: 100px;
+  margin-bottom: 20px;
 }
 
 /**
@@ -111,22 +113,18 @@ button:hover {
 
 /* Slots Style */
 [data-component="save-slot"] figure {
-
 }
 
 /* Slot's Image Style */
 [data-component="save-slot"] img {
-
 }
 
 /* Slots Title Style */
 [data-component="save-slot"] figcaption {
-
 }
 
 /* Slots Delete Button Style */
 [data-component="save-slot"] button {
-
 }
 
 /**
@@ -137,54 +135,68 @@ button:hover {
 
 /* Choice Buttons style */
 [data-component="choice-container"] button {
-	background: transparent;
-	font-family: 'Kelly Slab';
-	font-size: 32px;
-	-webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(252, 0, 0, 0.5);
+  background: transparent;
+  font-family: "Kelly Slab";
+  font-size: 32px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(252, 0, 0, 0.5);
 }
 
 /* Choice Button Style on Hover */
 [data-component="choice-container"] button:hover {
-	color: #E38282;
+  color: #e38282;
 }
 
 [data-component="choice-container"] button:active {
-	border: none;
-	color: #E38282;
+  border: none;
+  color: #e38282;
 }
 
 [data-component="choice-container"] button:focus {
-	border: none;
+  border: none;
 }
 
 /* Text Box styling */
 [data-component="text-box"] {
-	font-family: 'Kelly Slab';
-	font-size: 32px;
-	background-color: rgba(0,0,0,0.5);
+  font-family: "Kelly Slab";
+  font-size: 32px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Character Name Style */
 [data-ui="who"] {
-	font-family: 'Kelly Slab';
-	font-size: 32px;
+  font-family: "Kelly Slab";
+  font-size: 32px;
 }
 
 /* Style for Centered Text */
 [data-component="centered-dialog"] {
-	font-family: 'Kelly Slab';
-	font-size: 32px;
+  font-family: "Kelly Slab";
+  font-size: 32px;
 }
-
+.invisible {
+  display: none;
+}
+[data-component="timer-display"] div {
+  background-color: red;
+}
+.danger_btn {
+  text-align: center;
+  border-radius: 100%;
+  color: white !important;
+  background-color: #ff0000 !important;
+  padding: 50px 30px;
+  font-size: 28px !important;
+}
+[data-open="save"] {
+  /* display: none !important; */
+}
 /* Character Images Styles */
 [data-screen="game"] [data-character] {
-
 }
 
 /* Other Images Styles */
 [data-screen="game"] [data-image] {
-
 }
 
 /**
@@ -197,22 +209,18 @@ button:hover {
 
 /* Quick Menu Style */
 [data-component="quick-menu"] {
-
 }
 
 /* Quick Menu Buttons Style */
 [data-component="quick-menu"] span {
-
 }
 
 /* Quick Menu Buttons Style on Hover */
 [data-component="quick-menu"] span:hover {
-
 }
 
 /* Quick Menu Buttons Icon Style */
 [data-component="quick-menu"] > span > .fa {
-
 }
 
 /**
@@ -222,85 +230,68 @@ button:hover {
 **/
 
 /* Use the background property to set a color for these */
-input[type=range]:focus::-webkit-slider-runnable-track {
-
+input[type="range"]:focus::-webkit-slider-runnable-track {
 }
 
-input[type=range]::-webkit-slider-runnable-track {
-
+input[type="range"]::-webkit-slider-runnable-track {
 }
 
-input[type=range]:focus::-ms-fill-upper {
-
+input[type="range"]:focus::-ms-fill-upper {
 }
 
-input[type=range]:focus::-ms-fill-lower {
-
+input[type="range"]:focus::-ms-fill-lower {
 }
 
-input[type=range]::-moz-range-track {
-
+input[type="range"]::-moz-range-track {
 }
 
-input[type=range]::-ms-fill-lower {
-
+input[type="range"]::-ms-fill-lower {
 }
 
-input[type=range]::-ms-fill-upper {
-
+input[type="range"]::-ms-fill-upper {
 }
 
 /** Medium Screens, Phablets (601px) **/
 @media screen and (min-width: 37.56255em) {
-	/* Styles for the desktop version of the Quick Menu */
+  /* Styles for the desktop version of the Quick Menu */
 
-	/* Quick Menu Style */
-	[data-component="quick-menu"] {
+  /* Quick Menu Style */
+  [data-component="quick-menu"] {
+  }
 
-	}
+  /* Quick Menu Buttons Style */
+  [data-component="quick-menu"] span {
+  }
 
-	/* Quick Menu Buttons Style */
-	[data-component="quick-menu"] span {
-
-	}
-
-	/* Quick Menu Buttons Style on Hover */
-	[data-component="quick-menu"] span:hover {
-
-	}
+  /* Quick Menu Buttons Style on Hover */
+  [data-component="quick-menu"] span:hover {
+  }
 }
 
 /** Medium Devices, Tablets (992px)**/
 @media screen and (min-width: 62em) {
-
 }
 
 /** HD Screen, Large Devices, Wide Screens, Desktop (1200px) **/
 @media screen and (min-width: 75em) {
-
 }
 
 /** Full HD Screen, Large Devices, Wide Screens, Large Desktops (1920px) **/
 @media screen and (min-width: 120em) {
-
 }
 
 /** Retina Screen , Large Devices, Wide Screens(2560px) **/
 @media screen and (min-width: 160em) {
-
 }
 
 /** 4k Screens, Large Devices, Wide Screens (3840px) **/
 @media screen and (min-width: 240em) {
-
 }
 
 /** 5k Screens, Large Devices, Wide Screens (5000px) **/
 @media screen and (min-width: 312.5em) {
-
 }
 
 /** 8k Screens, Large Devices, Wide Screens (8000px) **/
 @media screen and (min-width: 500em) {
-
 }
