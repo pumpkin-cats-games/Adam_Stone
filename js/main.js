@@ -33,6 +33,8 @@ $_ready (() => {
 
 	monogatari.init ('#monogatari').then (() => {
 		// 3. Inside the init function:
-
+		Array.prototype.random = function () {
+			return this[Math.floor((Math.random()*this.length))];
+		}
 	});
 });

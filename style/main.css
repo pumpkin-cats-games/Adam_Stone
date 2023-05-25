@@ -182,12 +182,30 @@ button:hover {
 }
 .danger_btn {
   text-align: center;
-  border-radius: 100%;
-  color: white !important;
-  background-color: #ff0000 !important;
-  padding: 50px 30px;
-  font-size: 28px !important;
+  width: 378px;
+  height: 89px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.05);
+  font-family: 'Kelly Slab';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
 }
+
+.danger_btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(226, 141, 141, 0.2);
+}
+
+.danger_btn:active {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ff0000;
+  color: transparent;
+  background: rgba(255, 255, 255, 0.02);
+}
+
 [data-open="save"] {
   /* display: none !important; */
 }
