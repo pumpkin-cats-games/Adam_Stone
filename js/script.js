@@ -33,13 +33,22 @@ monogatari.configuration("credits", {});
 monogatari.assets("gallery", {});
 
 // Define the music used in the game.
-monogatari.assets("music", {});
+monogatari.assets("music", {
+  'Act1_Theme': 'standart(1, 3).mp3',
+  'ActIntro_Theme': 'between_acts.mp3',
+  'Act2_Theme': 'act_2.mp3',
+  'Act3_Theme': 'standart(1, 3).mp3',
+  'Act3_QuizTheme': 'quiz.mp3',
+  'Intro_Theme': 'vstup.mp3',
+});
 
 // Define the voice files used in the game.
 monogatari.assets("voices", {});
 
 // Define the sounds used in the game.
-monogatari.assets("sounds", {});
+monogatari.assets("sounds", {
+  'Act1_Crack': 'crack.mp3',
+});
 
 // Define the videos used in the game.
 monogatari.assets("videos", {
@@ -62,6 +71,7 @@ monogatari.assets("images", {
   'act3_heart1': 'act3_heart1.png',
   'act3_heart2': 'act3_heart2.png',
   'act3_heart3': 'act3_heart3.png',
+  'act4_table': 'act_4_table.png',
 });
 
 // Define the backgrounds for each scene.
@@ -76,6 +86,10 @@ monogatari.assets("scenes", {
   'act3_background2': 'act3_bground2.png',
   'act3_background3': 'act3_bground3.png',
   'act3_background4': 'act3_bground4.png',
+  'act4_background1': 'act4_bground1.png',
+  'act4_background2': 'act4_bground2.png',
+  'act4_background3': 'act4_bground3.png',
+  'act4_background4': 'act4_bground4.png',
 });
 
 // Define the Characters
@@ -89,6 +103,10 @@ monogatari.characters({
       act2alt: "stacey_act2alt.png",
       act3_1: "stacey_act3_1.png",
       act3_4: "stacey_act3_1.png",
+      act4_1: "act_4_google_woman_2.png",
+      act4_2: "act_4_google_woman_1.png",
+      act4_3: "act_4_google_woman_1.png",
+      act4_4: "act_4_google_woman_4.png"
     },
   },
 
@@ -103,6 +121,10 @@ monogatari.characters({
       act3_2: "adam_act3_2.png",
       act3_3: "adam_act3_3.png",
       act3_4: "adam_act3_4.png",
+      act4_1: "act_4_adam_1.png",
+      act4_2: "act_4_adam_2.png",
+      act4_3: "act_4_adam_2.png",
+      act4_4: "act_4_adam_4.png",
     },
   },
 
@@ -113,6 +135,14 @@ monogatari.characters({
       act3_2: "act_3_robot_2.png",
       act3_3: "act_3_robot_3.png",
       act3_4: "act_3_robot_4.png",
+    }
+  },
+
+  'arch': {
+    name: "{{archibald.name}}",
+    directory: "archibald",
+    sprites: {
+      act4: "arch_act4.png",
     }
   },
 
@@ -132,10 +162,13 @@ monogatari.characters({
 
 monogatari.script({
   Start: [
-    //"show video intro immersive with close controls",
+    "show video intro immersive with close controls",
+    'play music ActIntro_Theme loop',
     "show video intro_intro immersive with close controls",
+    'stop music ActIntro_Theme fade 1.7',
     'show background black with fadeIn',
     "g Адаме… Адаме, прокидайтесь.",
+    'play music Intro_Theme loop volume 10',
     'show scene intro_background1 with fadeIn',
     "show character a normal at right with fadeIn",
     "show character g normal at left with fadeIn",
@@ -164,11 +197,15 @@ monogatari.script({
     "Ви ступили у портал.",
     "Вмить вас охопила темрява. Здавалось, ніби усе тіло стягується тонкими нитками. Ще секунда і вони розірвуть плоть на мільярди нано-шматочків, які перенесуться разом з даними у будь-який вимір, у будь-яку точку існуючого…",
     "a <i>Що відбувається?..</i>",
+    'stop music Intro_Theme',
     "jump Act1_Start",
   ],
   Act1_Start: [
+    'play music ActIntro_Theme loop',
     "show video act1_intro immersive with close controls",
+    'stop music ActIntro_Theme fade 1.7',
     "Подорож тривала на подив не довго. Вже через секунду ви опинились на робочому столі.",
+    'play music Act1_Theme loop volume 10',
     'show scene act1_background1 with fadeIn',
     "show character a normal at right with fadeIn",
     "show character g normal at left with fadeIn",
@@ -266,7 +303,8 @@ monogatari.script({
       monogatari.storage().stacey.name = "Стейсі";
     },
     "g Навзаєм.",
-	'show background act1_background2 with headShake duration 10s',
+	  'show background act1_background2 with headShake duration 10s',
+    'play sound Act1_Crack',
     "Ви відчуваєте вібрацію у просторі та чуєте дивний гул. Простір навколо розходиться тріщинами, з яких всередину просочується негативна енергія.",
     "g Нам треба йти.",
     "a ЩО ЦЕ?",
@@ -274,14 +312,18 @@ monogatari.script({
     "a Та хоче познайомитись особисто?!",
     "g Можливо… В будь-якому випадку, час спливає, ходімо.",
     "Стейсі щось швидко налаштовує на кіберсітці та відкриває новий портал, в який ви не задумуючись проходите.",
+    'stop music Act1_Theme',
     "jump Act2_Start",
   ],
   Act2_Start: [
+    'play music ActIntro_Theme loop',
     "show video act2_intro immersive with close controls",
+    'stop music ActIntro_Theme fade 1.7',
     'show scene act2_background1 with fadeIn',
     'show character a act2 at center with fadeIn',
     'show character g act2 at left with fadeIn',
     "Цього разу портал переніс вас в ігрове лоббі. Ви помічаєте, що зі Стейсі щось не так.",
+    'play music Act2_Theme loop volume 10',
     "a Щось сталось?",
     "g Моя кіберсітка…",
     "Стейсі беземоційно дістає з руки металевий уламок та піднімає на вас погляд.",
@@ -506,14 +548,18 @@ monogatari.script({
     "g Сюди, по коридору.",
     "a Ну вперед! На зустріч пригодам!",
     "Стейсі не звернула увагу на ваш підроблений ентузіазм і спокійно покрокувала у невідомість…",
+    'stop music Act2_Theme',
     "jump Act3_Start",
   ],
   Act3_Start: [
+    'play music ActIntro_Theme loop',
     "show video act3_intro immersive with close controls",
+    'stop music ActIntro_Theme fade 1.7',
     "show scene act3_background1 with fadeIn",
     "show character a act3_1 at center with fadeIn",
     "show character g act3_1 at left with fadeIn",
     "Ви зі Стейсі доволі довго йшли коридором. Мовчання гнітило, тому ви вирішили почати розмову.",
+    'play music Act3_Theme loop volume 10',
     "a То як Зевсу вдалось захопити владу? Чому Легіон не захистив Кібервсесвіт?",
     "g Зевс – одне з наймогутніших створінь у Кібервсесвіті. Він здатен майже на все. Потрапивши у наш світ, Зевс майже відразу усвідомив, наскільки велику силу має. Він підкорив собі опозицію, частину армії, залякав населення кібервимірів та майже безперешкодно забрав собі трон.",
     "a І як довго тривала ця «війна»?",
@@ -546,6 +592,8 @@ monogatari.script({
     "show character a act3_3 at left with fadeIn",
     'show character c act3_3 at right with fadeIn',
     "Через секунду приміщення яскраво засвітилось, а ви усвідомили, що знаходитесь у студії.",
+    'stop music Act3_Theme',
+    'play music Act3_QuizTheme loop volume 10',
     "c Всім привіт! Сьогодні ми проведемо новий епізод нашого надзвичайного шоу «Скажи або помри»! З вами ваш вірний слуга Шоумен Кларсон, а ім’я нового учасника ми дізнаємось прямо зараз!",
     function () {
       monogatari.storage().clarson.name = "Шоумен Кларсон";
@@ -1454,6 +1502,8 @@ monogatari.script({
 
   Act3_Continuation3: [
     "На щастя, вам вистачило лічених секунд, аби заховатись за найближчий стіл та пережити вибух робота. Ви вперше в житті раді бачити поруч нечутливу кібернетичну жінку.",
+    'stop music Act3_QuizTheme',
+    'play music Act3_Theme loop volume 10',
     "a Де ти була?! Я ледве не помер тут!",
     "g Вибачте? Я не янгол-охоронець, а лише ваш провідник у цьому світі.",
     "a Але ти мене врятувала. Все ж боїшся мене втратити?",
@@ -1555,10 +1605,337 @@ monogatari.script({
     "a Ходімо.",
     "g Чудово, за мною. Обережно переступайте уламки.",
     "Ви послідували за роботесою в наступний портал, який знаходився у віддаленій частині студії.",
+    'stop music Act3_Theme',
+    "jump Act4_Start",
+  ],
+
+  Act4_Start: [
+    'play music ActIntro_Theme loop',
+    "show video act4_intro immersive with close controls",
+    'stop music ActIntro_Theme fade 1.7',
+    'show scene act4_background1 with fadeIn',
+    'show character a act4_1 at left with fadeIn',
+    'show character g act4_1 at right with fadeIn',
+    "На іншій стороні порталу вас чекав…",
+    "Коридор. Просто коридор. Нескінченний прямий тунель. Щоправда, ви могли бачити кібернетичний простір довкола, що хоч якось додавало натхнення.",
+    "a Це схоже на космос…",
+    "g Можливо. Кібервсесвіт це і космос, проте всередині комп’ютера.",
+    "a Гарно.",
+    "g Угу.",
+    "Ви пройшли мовчки ще деякий час.",
+    "a Ще довго?",
+    "g Перепрошую?",
+    "a Так, не нагадуй, що тут немає часу. Але все ж, нам ще довго йти у… у невідомість?",
+    "g Не знаю.",
+    "a Ти ж Гугл-Жінка! Ти все знаєш!",
+    "g Не все. Лише те, що доступно моїм системам.",
+    "Ви зітхнули та зупинились.",
+    "a Я не бачу сенсу йти далі.",
+    "g Чому ж?",
+    "a Це мій сон. І я можу ним управляти.",
+    "g Це не сон.",
+    "a Тс-с-с! Не заважай.",
+    "show scene black with fadeIn",
+    "Ви заплющили очі, уявляючи бургер, колу і двері, які виведуть вас звідси.",
+    "g І що далі?",
+    "a Та тихо!",
+    "Ви почали мружитись, сподіваючись, що це допоможе, проте нічого не відбулось.",
+    'show scene act4_background1 with fadeIn',
+    'show character a act4_1 at left with fadeIn',
+    'show character g act4_1 at right with fadeIn',
+    "a Гаразд! Я просто ніколи не практикував свідомі сни!",
+    "g Звичайно. Проблема лише в цьому.",
+    "a Так!",
+    "g Вам слід нарешті подорослішати та почати вірити мені.",
+    "a Бла-бла-бла. Чому ти така серйозна? І чому ти досі звертаєшся до мене на «ви»?",
+    "g Я так запрограмована.",
+    "a Змінюй програму! Відтепер тільки на ти. Домовились?",
+    "g Гаразд.",
+    "a Чудово!",
+    "g Я рада, що ви задоволені, але може підемо далі?",
+    "a «Ти задоволений».",
+    "g Гаразд.",
+    "show scene black with fadeIn",
+    "Ви закрили очі рукою та похитали головою.",
+    "a Це не має сенсу…",
+    "g Може й так, але ось це – навпаки.",
+    "a Що? Де?",
+    'show scene act4_background1 with fadeIn',
+    'show character a act4_2 at left with fadeIn',
+    'show character g act4_2 at center with fadeIn',
+    'show image act4_table with fadeIn',
+    "g Поглянь.",
+    "Ви підійшли ближче та побачили на стіні тунелю табличку з мерехтливими літерами.",
+    "a «Я чекаю на тебе». Хм…",
+    "g Тут стрілка. Напевно вона показує нам шлях до автора послання.",
+    {
+      "Choice": {
+        "FollowTheArrow": {
+          "Text": "Піти за стрілкою",
+          "Do": "jump Act4_Continuation1",
+        },
+        "GoStraight": {
+          "Text": "Не звертати зі шляху",
+          "Do": "jump Act4_End",
+        },
+      },
+    },
+  ],
+
+  Act4_Continuation1: [
+    "a Ходімо туди.",
+    "g Але це може бути небезпечно…",
+    "a Мені все одно! Я втомився йти в нікуди.",
+    "Ви схопили Стейсі за руку та потягнули за собою у сторону, вказану на табличці.",
+    "Доволі скоро ви побачили розкидані на підлозі сторінки.",
+    "a <i>Невже ми кудись прийшли?!</i>",
+    "Ви прискорили кроки та невдовзі опинились у місці, дуже схожому на бібліотеку.",
+    "show scene act4_background2 with fadeIn",
+    'show character a act4_3 at left with fadeIn',
+    'show character g act4_3 at center with fadeIn',
+    'show character arch act4 at right with fadeIn',
+    "arch Вітаю.",
+    "a Хто ти?",
+    "arch Як нетактовно.",
+    "g Приносимо свої вибачення. Адам мав на увазі, що ми побачили послання та пішли у напрямку, вказаному там. Напевно це ви його залишили.",
+    "arch Так, я. Ласкаво прошу до серця Кібервсесвіту. Мене звати Арчібальт. Я… хм… я бібліотекар.",
+    function () {
+      monogatari.storage().archibald.name = "Арчібальт";
+    },
+    "Ви не можете роздивитись обличчя чоловіка, проте відчуваєте, що він посміхається.",
+    "a Бібліотекар? У Кібервсесвіті?",
+    "arch Ти ще чомусь дивуєшся після усього, що з тобою трапилось? О-хо-хо, тоді тебе чекає ще багато відкриттів! Підходь ближче, поспілкуємось.",
+    "a Чому ти нас кликав?",
+    "arch Власне… Мені був потрібен лише ти.",
+    "Стейсі лише хмикнула у відповідь.",
+    "arch Пробачте, леді, за таку нетактовну правду. Проте маю зауважити, що без вас Адам просто не дожив би до цього моменту.",
+    "Вам на мить здалося, що роботеса посміхнулась.",
+    "a Давай ближче до суті.",
+    "arch Ця молодь… Завжди кудись поспішають.",
+    "a Будь ласка.",
+    "arch Добре-добре. Так ось… Справа в тому, що я дещо загубив. Було б непогано, якби ти допоміг мені знайти це.",
+    "a Серйозно? Може тобі просто лупу подарувати?",
+    "g Адаме, не будь таким грубіяном!",
+    "Ви закотили очі.",
+    "arch Нічого, все добре. Лупа мені не допоможе, хлопчику. Проблема в тому, що я не можу вийти за межі цього виміру, а необхідна мені річ знаходиться як раз у сусідньому підвимірі. Для тебе це раз плюнути, швидко знайдеш і повернешся.",
+    "a Я так розумію, вибору в мене немає?",
+    "arch Чому ж? Вибір є завжди. Або допоможеш, або будеш далі вічно блукати у нескінченному порожньому тунелі. Уяви, як тебе переповнюватиме відчуття безвиході та ненависті до самого себе за те, що колись відмовив дідусю у проханні.",
+    "Посмішка Арчібальта відблискує з-під капюшону.",
+    "a Досить триндіти, діду. Що треба знайти?",
+    "arch О-хо-хо! Швидко до справи, так? Гаразд, подивимось… Так-так-так… Ага! Ось! Мені потрібно, аби ти знайшов файл «Poseidonus.exe»",
+    "a Ще один? Ви знущаєтесь? Олімп, Зевси, Посейдони. Дайте мені хоча б Афродіту для комплекту!",
+    "Стейсі знову хмикнула.",
+    "g Ви відкриєте нам портал, Арчібальте?",
+    "arch О, так, звичайно. Зараз… І… Ось! Чекаю на вас!",
+    "Стейсі першою пройшла у портал, а ви поспішили за нею.",
+    "show scene act4_background3 with fadeIn",
+    'show character a act4_4 at right with fadeIn',
+    'show character g act4_4 at left with fadeIn',
+    "a Ого, де ми?",
+    "g Схоже на файлову систему.",
+    "a Схоже на галактику…",
+    "jump Act4_FolderSelect",
+  ],
+
+  Act4_FolderSelect: [
+    {
+      "Choice": {
+        "Dialog": "g Яку папку перевіримо?",
+        "My_Game": {
+          "Text": "My_Game",
+          "Do": "jump Act4_MyGame",
+        },
+        "CyberGods": {
+          "Text": "CyberGods",
+          "Do": "jump Act4_CyberGods",
+        },
+        "OlimpInfo2": {
+          "Text": "OlimpInfo 2",
+          "Do": "jump Act4_OlimpInfo2",
+        },
+        "Desktop": {
+          "Text": "Desktop",
+          "Do": "jump Act4_Desktop",
+        }
+      },
+    },
+  ],
+
+  Act4_MyGame: [
+    "a Давай у «My_Game».",
+    "Ви підійшли до іконки та доторкнулись до неї.",
+    "a Ааааам… І що далі?",
+    "g Це список файлів.",
+    "Ви читаєте назви.",
+    "a adam_stone.exe, amd_ags_x64.dll, Data0.bdt, Data0.bhd, eossdk-win64-shipping.so, regulation.bin, start_protected_game.exe, uninstall.exe…",
+    "a Ну я не бачу тут ніяких посейдонів.",
+    "g Ходімо у наступну папку?",
+    "a Так…",
+    "jump Act4_FolderSelect"
+  ],
+
+  Act4_CyberGods: [
+    "a Обираю «CyberGods».",
+    "Ви підійшли до іконки та доторкнулись до неї.",
+    "a Як багато…",
+    "g Подивимось… aphrodite.exe, apollo.exe, ares.exe, athena.exe, dionysus.exe, hera.exe, poseidonus.exe, zeus.exe.",
+    "a Посейдон! Ось воно!",
+    "g Чудово. Забереш його?",
+    "Ви доторкнулись вже до файлу, який миттєво зменшився, перетворився у маленький куб та зручно ліг у вашу руку.",
+    "a Ось і Посейдон.",
+    "Ви підняли погляд на список та не повірили своїм очам.",
+    "a Щ...Що? Зевс?",
+    "g Зевс… Не думаю, що нам треба це чіпат… Адам!",
+    "Не слухаючи Гугл-Жінку, ви потягнулись до файлу zeus.exe, який відразу ж вдарив вас струмом.",
+    "a АЙ! Чому у вас тут файли агресивні?!",
+    "g Думаю, не дивно, що Зевс поставив захист на свій файл…",
+    "a Може ти й права… Ходімо звідси швидше…",
+    {
+      "Choice": {
+        "Dialog": "g Будеш дивитись ще папки чи повертаємось до Арчібальта?",
+        "Folders": {
+          "Text": "Перегляну ще",
+          "Do": "jump Act4_FolderSelect",
+        },
+        "Arch": {
+          "Text": "До Арчібальта",
+          "Do": "jump Act4_Continuation2",
+        },
+      },
+    },
+  ],
+
+  Act4_OlimpInfo2: [
+    "a Сходимо в «OlimpInfo 2».",
+    "Ви підійшли до іконки та доторкнулись до неї.",
+    "g Всього лише один файл.",
+    "a Бачу. OlimpInfo.txt… Я хочу почитати.",
+    "g Але ми не це шукаємо.",
+    "a Я хочу почитати! Це швидко!",
+    "g Як забажаєш. Просто торкніться його.",
+    "Ви відкрили файл. Окрім загальнодоступної інформації про корпорацію та розробки, ви знайшли частину вихідного коду ШІ.",
+    "a <i>Це скарб… Неймовірно. Потрібно не забути про це, коли прокинусь.</i>",
+    "g Все?",
+    "a Так, пішли.",
+    "jump Act4_FolderSelect"
+  ],
+
+  Act4_Desktop: [
+    "a Хочу в «Desktop».",
+    "Ви підійшли до іконки та доторкнулись до неї.",
+    "a Оу, тут тільки корзина та хром.",
+    "g Будете переглядати щось, чи повернемось?",
+    "a Може зайти в інтернет?",
+    "g Тут немає підключення до інтернету. Хочеш пограти в динозаврика?",
+    "a Хах, дякую, ні.",
+    {
+      "Choice": {
+        "Bin": {
+          "Text": "Переглянути корзину",
+          "Do": "jump Act4_Bin",
+        },
+        "NoBin": {
+          "Text": "Повернутись",
+          "Do": "jump Act4_FolderSelect",
+        },
+      },
+    },
+  ],
+
+  Act4_Bin: [
+    "a Давай глянемо, що в корзині.",
+    "g Угу.",
+    "a Одна папка. А всередині… Ще одна папка. І ще… І ще…",
+    "Ви агресивно переходите з однієї внутрішньої папки на іншу.",
+    "a Це вже дванадцята…",
+    {
+      "Choice": {
+        "Bin2": {
+          "Text": "Продовжити пошук",
+          "Do": "jump Act4_Bin2",
+        },
+        "NoBin": {
+          "Text": "Вийти",
+          "Do": "jump Act4_FolderSelect",
+        },
+      },
+    },
+  ],
+
+  Act4_Bin2: [
+    "Ви пройшли ще двадцять папок… тридцять… на п’ятдесятій вам здалось, що ви зійшли з глузду. Проте на шістдесят восьмій…",
+    "a Нарешті!!! Але… Що це?",
+    "g А? Вибач, я відволіклась. Ти щось знайшов?",
+    "a Так, тут файл death_weapon.exe. Звучить непогано.",
+    "g Ви збираєтесь забрати його?",
+    "a Звичайно!",
+    function () {
+      monogatari.storage().flags.deathWeapon = true;
+    },
+    "g Гаразд, але давай швидше, бо мої системи скоро впадуть у сплячий режим через бездію.",
+    "jump Act4_FolderSelect",
+  ],
+
+  Act4_Continuation2: [
+    "a Ми знайшли файл, але як нам повернутись? Ми ж не можемо відкрити портал.",
+    "g Слушне питання. Арчібальте! АРЧІБАЛЬТЕ!!!",
+    "Перед вами з’явився портал.",
+    "g О! Дякую, Арчібальте!",
+    "a Наркоманія…",
+    "show scene act4_background2 with fadeIn",
+    'show character a act4_3 at left with fadeIn',
+    'show character g act4_3 at center with fadeIn',
+    'show character arch act4 at right with fadeIn',
+    "Ви повернулись у бібліотеку, де вас вже чекав Арчібальт.",
+    "arch А ви швидко! От же ж ця молодь! Знайшли мій файл?",
+    "a Ага. Тримай.",
+    "arch О-хо-хо! Дякую вам, дітки. Дуже допомогли дідусю.",
+    "g Звертайтесь!",
+    "arch Дякую, леді. А ви нічого цікавого там не бачили?",
+    "a Ні.",
+    "arch Зовсім?",
+    "a Зовсім.",
+    "arch Шкода… Файлова система Кібервсесвіту приховує стільки секретів…",
+    "a Буду знати. Ти покажеш нам дорогу?",
+    "arch О! А й справді! Я зовсім про це забув! А куди вам треба?",
+    "a Я… Я не знаю. Стейсі, куди нам треба?",
+    "g Просто далі. В найближчий вимір.",
+    "a В найближчий вимір, будь ласка.",
+    "arch О-хо-хо! Невже ти навчився тактовності, Адаме? Ну що ж… Найближчий вимір це… О! Ти азартний, Адаме?",
+    "a Це не має значення.",
+    "arch Ну побачимо, чи сподобається це тобі. О-хо-хо! Прошу, дітки! Ще зустрінемось!",
+    "Ви якнайшвидше пройшли у відкриту кіберсітку, аби більше не чути «О-хо-хо».",
+    "jump Act5_Start"
+  ],
+
+  Act4_End: [
+    "a Мені це не цікаво. Ходімо вже звідси.",
+    "hide image act4_table",
+    'show character a act4_1 at left with fadeIn',
+    'show character g act4_1 at right with fadeIn',
+    "a <i>Це може бути небезпечно… Стоп, чому я боюсь чогось уві сні?.. Неважливо, просто піду далі.</i>",
+    "g Але… Зачекай!",
+    "a Немає часу. Хах… Буквально немає часу.",
+    "g Твої каламбури з кожним разом стають все кращими.",
+    "a Не думав, що почую комплімент від тебе.",
+    "g Це одноразова акція.",
+    "a Ще побачимо.",
+    "Ви йшли і йшли далі. Оточення не змінювалось, тому вас знову почали відвідувати панічні думки.",
+    "a <i>Мене вже нудить від цього місця… Коли це закінчиться?!</i>",
+    "Ви вже не дивились по сторонах, а лише йшли, опустивши голову.",
+    "g Дивись! Це вихід!",
+    "Ви негайно підняли погляд та побачили перед собою синє сяйво кіберсітки.",
+    "a О ТАК! НАРЕШТІ!",
+    "Ви стрімголов помчались до порталу і не роздумуючи ступили у новий вимір.",
+    "jump Act5_Start",
+  ],
+
+  Act5_Start: [
     "end",
   ],
 
   Death: [
+    'stop music',
     'show scene black with fadeIn',
     "You're dead.",
     "end"
