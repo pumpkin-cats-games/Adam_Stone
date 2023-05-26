@@ -15,8 +15,12 @@ monogatari.storage ({
 	clarson: {
 		name: 'Робот'
 	},
+	archibald: {
+		name: 'Чоловік у капюшоні'
+	},
 	flags: {
 		blasterFlag: false,
 		chipFlag: false,
+		deathWeapon: false,
 	}
 });
