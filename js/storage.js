@@ -16,6 +16,7 @@ monogatari.storage ({
 		name: 'Робот'
 	},
 	flags: {
-		blasterFlag: false
+		blasterFlag: false,
+		chipFlag: false,
 	}
 });
