@@ -18,9 +18,19 @@ monogatari.storage ({
 	archibald: {
 		name: 'Чоловік у капюшоні'
 	},
+	lancer: {
+		name: "Голос"
+	},
+	jayjay: {
+		name: "Голос позаду"
+	},
 	flags: {
 		blasterFlag: false,
 		chipFlag: false,
+		cyberGodsFlag: false,
+		myGameFlag: false,
+		olimpInfo2Flag: false,
+		desktopFlag: false,
 		deathWeapon: false,
 	}
 });
