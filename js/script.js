@@ -90,6 +90,16 @@ monogatari.assets("scenes", {
   'act4_background2': 'act4_bground2.png',
   'act4_background3': 'act4_bground3.png',
   'act4_background4': 'act4_bground4.png',
+  'act5_background1': 'act_5_background_1.png',
+  'act5_background2': 'act_5_background_2.png',
+  'act5_background3': 'act_5_background_3.png',
+  'act5_background4': 'act_5_background_4.png',
+  'act5_background5': 'act_5_background_5.png',
+  'act5_background6': 'act_5_background_6.png',
+  'act5_background7': 'act_5_background_7.png',
+  'act5_background8': 'act_5_background_8.png',
+  'act5_backgroundFight': 'act_5_background_fight.png',
+  'act5_backgroundJockers': 'act_5_background_jockers.png',
 });
 
 // Define the Characters
@@ -102,7 +112,7 @@ monogatari.characters({
       act2: "stacey_act2.png",
       act2alt: "stacey_act2alt.png",
       act3_1: "stacey_act3_1.png",
-      act3_4: "stacey_act3_1.png",
+      act3_4: "stacey_act3_4.png",
       act4_1: "act_4_google_woman_2.png",
       act4_2: "act_4_google_woman_1.png",
       act4_3: "act_4_google_woman_1.png",
@@ -142,8 +152,16 @@ monogatari.characters({
     name: "{{archibald.name}}",
     directory: "archibald",
     sprites: {
-      act4: "arch_act4.png",
+      act4: "act_4_librarian_2 (1).png",
     }
+  },
+
+  'jj': {
+    name: "{{jayjay.name}}",
+  },
+
+  'lancer': {
+    name: "{{lancer.name}}",
   },
 
   'so': {
@@ -1744,18 +1762,37 @@ monogatari.script({
         "My_Game": {
           "Text": "My_Game",
           "Do": "jump Act4_MyGame",
+          "Condition": function() {
+            return !monogatari.storage().flags.myGameFlag;
+          },
         },
         "CyberGods": {
           "Text": "CyberGods",
           "Do": "jump Act4_CyberGods",
+          "Condition": function() {
+            return !monogatari.storage().flags.cyberGodsFlag;
+          },
         },
         "OlimpInfo2": {
           "Text": "OlimpInfo 2",
           "Do": "jump Act4_OlimpInfo2",
+          "Condition": function() {
+            return !monogatari.storage().flags.olimpInfo2Flag;
+          },
         },
         "Desktop": {
           "Text": "Desktop",
           "Do": "jump Act4_Desktop",
+          "Condition": function() {
+            return !monogatari.storage().flags.desktopFlag;
+          },
+        },
+        "ReturnToLibrary": {
+          "Text": "Ніяку, повернутися до Арчібальта",
+          "Do": "jump Act4_Continuation2",
+          "Condition": function() {
+            return monogatari.storage().flags.cyberGodsFlag;
+          },
         }
       },
     },
@@ -1771,6 +1808,9 @@ monogatari.script({
     "a Ну я не бачу тут ніяких посейдонів.",
     "g Ходімо у наступну папку?",
     "a Так…",
+    function () {
+      monogatari.storage().flags.myGameFlag = true;
+    },
     "jump Act4_FolderSelect"
   ],
 
@@ -1782,6 +1822,9 @@ monogatari.script({
     "a Посейдон! Ось воно!",
     "g Чудово. Забереш його?",
     "Ви доторкнулись вже до файлу, який миттєво зменшився, перетворився у маленький куб та зручно ліг у вашу руку.",
+    function () {
+      monogatari.storage().flags.cyberGodsFlag = true;
+    },
     "a Ось і Посейдон.",
     "Ви підняли погляд на список та не повірили своїм очам.",
     "a Щ...Що? Зевс?",
@@ -1817,6 +1860,9 @@ monogatari.script({
     "a <i>Це скарб… Неймовірно. Потрібно не забути про це, коли прокинусь.</i>",
     "g Все?",
     "a Так, пішли.",
+    function () {
+      monogatari.storage().flags.olimpInfo2Flag = true;
+    },
     "jump Act4_FolderSelect"
   ],
 
@@ -1828,6 +1874,9 @@ monogatari.script({
     "a Може зайти в інтернет?",
     "g Тут немає підключення до інтернету. Хочеш пограти в динозаврика?",
     "a Хах, дякую, ні.",
+    function () {
+      monogatari.storage().flags.desktopFlag = true;
+    },
     {
       "Choice": {
         "Bin": {
@@ -1931,6 +1980,161 @@ monogatari.script({
   ],
 
   Act5_Start: [
+    'play music ActIntro_Theme loop',
+    "show video act5_intro immersive with close controls",
+    'stop music ActIntro_Theme fade 1.7',
+    'show scene act5_background1 with fadeIn',
+    "Через секунду ви опинились… Десь. Навкруги усе мерехтіло зеленим світлом. Ви озирнулись в пошуках подруги.",
+    "a СТЕЙСІ?!",
+    "g Так?",
+    "a ЩО З ТОБОЮ?!",
+    "g Те ж, що й з тобою, Адаме.",
+    "a Я став напівголою робо-жінкою із сумкою на голові?",
+    "g Ну майже.",
+    "Роботеса дістала звідкись дзеркало.",
+    "g Прошу.",
+    "Поглянувши в дзеркало, ви ледве не випустили його з рук.",
+    "a Я посивів з вами тут! І що це за піратський прикид? Я хоч і хаке… Кхм. Не пірат я!",
+    'show scene act5_background2 with fadeIn',
+    "jj Ти не пірат! Ти бубновий валет!",
+    "a Що? Хто?",
+    "Ви обернулись та побачили перед собою когось схожого на карткового джокера.",
+    function () {
+      monogatari.storage().jayjay.name = "Джокер";
+    },
+    "jj Ти, хто ж ще? А вона – бубнова королева!",
+    "g Дякую. А хто ви?",
+    "jj Я Джокер! Джей-Джей!",
+    function () {
+      monogatari.storage().jayjay.name = "Джей-Джей";
+    },
+    "a Ага… Ми в покер граємо чи що?",
+    "jj Не зовсім. Це вимір пасьянсів.",
+    "a Просто чудово. І що тут треба робити?",
+    "jj А навіщо ви сюди прийшли?",
+    "a А… Важко сказати. Просто шукаємо вихід?",
+    "jj Ну ви не вийдете звідси, поки не відвідаєте аудієнцію у Червової Королеви.",
+    "a А де вона?",
+    "jj У картковому замку.",
+    "a А де картковий замок?",
+    "jj О-о-ось там!",
+    "Джокер показав кудись на горизонт, де ледве-ледве виднілись куполи замку.",
+    "jj Зовсім поруч!",
+    "a Дійсно…",
+    "g Ну ходімо? Не будемо гаяти час.",
+    "Ви зітхнули та приготувались до складного шляху.",
+    "jj Гойда!!!",
+    "a Зачекай, ти з нами зібрався?",
+    "jj Так! А що?",
+    "a А навіщо ти нам?..",
+    "jj Без мене ви не знайдете шлях! Ха-ха!",
+    "Джей-джей підстрибнув та зробив колесо, зупинившись біля вас.",
+    "a О боже… Це буде важкий шлях.",
+    "g Сподівайся на краще, Адаме.",
+    "a Ага…",
+    "Втрьох ви попрямували у путь-дорогу. Джей-джей увесь час торохтів та веселився, проте вам було не до сміху.",
+    "a Стейсі… Може його загубити?",
+    "g Не будь таким жорстоким.",
+    "Ви підняли погляд на Джокера, який продовжував стрибати довкола та розповідати історії карткового виміру.",
+    "a Який занудний шут…",
+    "Через деякий час ви нарешті кудись прийшли.",
+    "jj О, це двір Вин! Треба обов’язково зайти!",
+    "a Ну окей…",
+    'show scene act5_background3 with fadeIn',
+    "Ви увійшли у маєток.",
+    "lancer Хто тут?!",
+    "jj Це ми! Привіт, Лансер!",
+    function () {
+      monogatari.storage().lancer.name = "Лансер";
+    },
+    "lancer О, Джей-джей! Вітаю! Як справи? Знайшов нових друзів?",
+    "jj Так! Заціни, які круті! Вони не з нашого виміру.",
+    "lancer Воу! Непогано.",
+    "Лансер підійшов до вас. Здалеку він не здавався таким високим, але тепер ви йому по лікоть.",
+    "lancer Вітаю, гості. Я Лансер – Туз Вин. Ласкаво просимо до нас!",
+    "a Дя… дякую…",
+    "g Я Стейсі, а це Адам. Ми потрапили сюди з іншого виміру. Тепер шукаємо шлях далі.",
+    "lancer Ого, ви були у бібліотеці? Ніколи там не бував!",
+    "a А-га…",
+    "lancer Щось ваш Адам не говіркий.",
+    "g Лансер, ви допоможете нам знайти вихід?",
+    "lancer Звичайно! Але не просто так!",
+    "a Нічого нового…",
+    "lancer Всього лише три запитання! Відповідь «так» або «ні». Все дуже просто!",
+    "a Ну давай.",
+    "lancer Але за помилку ти помреш.",
+    "a Ага, я вже здогадався.",
+    "jump Act5_Q1",
+  ],
+  Act5_Q1: [
+    {
+      "Choice": {
+        "Dialog": "lancer Хм, тоді перше запитання… Периферійні пристрої виконують функцію вводу та виводу інформації. Правда чи ні?",
+        "Yes": {
+          "Text": "Так",
+          "Do": "jump Act5_Q2",
+        },
+        "No": {
+          "Text": "Ні",
+          "Do": "jump Death",
+        },
+      },
+    },
+  ],
+  Act5_Q2: [
+    {
+      "Choice": {
+        "Dialog": "lancer Чудово, наступне питання: Електронні схеми для управління зовнішніми пристроями це транзистори. Правда чи ні?",
+        "Yes": {
+          "Text": "Так",
+          "Do": "jump Death",
+        },
+        "No": {
+          "Text": "Ні",
+          "Do": "jump Act5_Q3",
+        },
+      },
+    },
+  ],
+  Act5_Q3: [
+    {
+      "Choice": {
+        "Dialog": "lancer Супер! Останнім питанням буде… Першочергове значення слова “комп	‘ютер” було “людина, яка виконує розрахунки”. Правда чи ні?",
+        "Yes": {
+          "Text": "Так",
+          "Do": "jump Act5_Continuation1",
+        },
+        "No": {
+          "Text": "Ні",
+          "Do": "jump Death",
+        },
+      },
+    },
+  ],
+  Act5_Continuation1: [
+    "lancer Вітаю, ти відповів на всі питання правильно!",
+    "jj УРА! Ти молодець!",
+    "a Досить верещати, шут… То що тепер, ти покажеш нам дорогу?",
+    "lancer А вам це не потрібно, просто йдіть прямо.",
+    "a Ти серйозно?!",
+    "g Хм, але ж було цікаво, чи не так?",
+    "a Просто надзвичайно. Ми гаємо час.",
+    "lancer Може й так, але ви не пройдете до Королеви без моєї частини паролю…",
+    "jj Саме так! Ха-ха!",
+    "a Аргх! Як же ти мене бісиш…",
+    "g Спокійно, Адаме. То який пароль?",
+    "lancer Хммм… Здається, «Свободи більше немає».",
+    "a Іронічно.",
+    "lancer Так, ми всі сьогодні перебуваємо в полоні. Добре, що Зевсу немає діла до карткового виміру.",
+    "a Чому ж?",
+    "lancer Усі вважають, що пасьянси це щось непотрібне та застаріле.",
+    "jj Поки не програють у покер! Ха-ха!",
+    "g А щодо Червової Королеви? Наскільки мені відомо, вона тиран…",
+    "lancer Королева хоч і малодушна, проте ніколи не дозволить чужаку знищити наш світ.",
+    "jj Лише тому, що це замарає її улюблену сукню! Ха-ха!",
+    "a Джей…",
+    "lancer Джей-джей найвеселіший Джокер, якого я коли-небудь знав. Насправді, я знав всього двох.",
+    "jj І другий помер від депресії! Ха-ха!",
     "end",
   ],
 
