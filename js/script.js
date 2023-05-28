@@ -4714,6 +4714,9 @@ monogatari.script({
     'play music Act3_QuizTheme loop volume 10',
     "z ЧУ-ВА-ЧІ!",
     "z Переможи мене три рази, якщо зможеш! І тоді я, можливо, поступлюся!",
+	  function() {
+      monogatari.storage().rsp.n = 0;
+    },
     'jump RSP_start'
   ],
 
