@@ -2337,8 +2337,8 @@ monogatari.script({
   ],
   Death5: [
     'stop music',
-    "show video death immersive with close controls",
-    "jump Act5_checkpoint5",
+    "show video death immersive with close",
+    "jump Act5_crosses_checkpoint5",
   ],
   Act5_Continuation2: [
     "jj Невже ти зміг усе відгадати?!",
