@@ -137,7 +137,10 @@ button:hover {
 [data-component="choice-container"] button {
   background: transparent;
   font-family: "Kelly Slab";
-  font-size: 32px;
+  font-size: 25px;
+  width: 350px;
+  padding: 1px;
+  margin: 5px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgba(252, 0, 0, 0.5);
 }
@@ -155,8 +158,14 @@ button:hover {
 [data-component="choice-container"] button:focus {
   border: none;
 }
+.highlighted_choice{
+  color: #A2A0FF;
 
-/* Text Box styling */
+  mix-blend-mode: normal;
+  border: 1px solid rgba(2, 27, 255, 0.5);
+}
+
+  /* Text Box styling */
 [data-component="text-box"] {
   font-family: "Kelly Slab";
   font-size: 32px;
