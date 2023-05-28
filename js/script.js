@@ -62,7 +62,7 @@ monogatari.assets("videos", {
   act4_intro: "act_4.mp4",
   act5_intro: "act_5.mp4",
   act6_intro: "act_6.mp4",
-  death: "death4k.mp4",
+  death: "death.mp4",
   titles: "titles.mp4",
   end_1: "ending_1.mp4",
   end_2: "ending_2.mp4",
